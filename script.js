@@ -12,22 +12,37 @@
 }
 
 function popupFunc() {
+  //if entering wrong inputs the website displays this popup
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 
 }
 function addBookToLibrary (bookName, author, totalPages) {
-  let deleteBtn = document.createElement('button');
-  deleteBtn.setAttribute('id', 'delete');
+  //creates a book objects, adds it to the existing myLibrary array and calls createCard();
   let book = new Book(bookName, author,totalPages );
-  myLibrary.push([book, deleteBtn]);
-  save();
-  createCard(book, deleteBtn);
+  myLibrary.push(book);
+  createCard(book);
 }
+function updatebooks(){
+  //deletes all the divs under #main and re-updates that with the spliced array
+  const books = document.querySelector('#main');
+  books.querySelectorAll('div').forEach(div => div.remove());
+  for(let i = 0; i < myLibrary.length; i++){
+    createCard(myLibrary[i]);
+  }
+}
+function createCard(bookObj) {
+  /* 
+  creates all the divs meant to be displayed on each book card
+  which is then appended to their container #main.
+  adds an event listener for each object's delete button that removes
+  that book from the array and calls updateBooks();
+  */
 
-function createCard(bookObj, deleteBtn) {
   let main = document.querySelector('#main');
   let card = document.createElement('div');
+  let deleteBtn = document.createElement('button');
+  deleteBtn.setAttribute('id', 'delete');
   let bookname = document.createElement('div');
   let author = document.createElement('div');
   let totalPages = document.createElement('div');
@@ -41,9 +56,10 @@ function createCard(bookObj, deleteBtn) {
   card.appendChild(totalPages);
   card.appendChild(deleteBtn);
   main.appendChild(card);
-  deleteBtn.addEventListener('click', event => {
-    event.target.parentNode.remove();
-    myLibrary = myLibrary.filter(v => v[1] !== event.target);
+  deleteBtn.addEventListener('click', () => {
+    myLibrary.splice(myLibrary.indexOf(bookObj), 1);
+    saveLocal();
+    updatebooks();
   });
 }
   
@@ -59,9 +75,26 @@ btn.addEventListener('click', () => {
   else{
 
     addBookToLibrary(bookName.value, author.value, text.value);
+    saveLocal();
     form.reset();
   }
   
 });
 
 
+function saveLocal(){
+  localStorage.setItem('library', JSON.stringify(myLibrary));
+}
+
+function loadLocal () {
+  myLibrary = JSON.parse(localStorage.getItem('library'));
+  if (myLibrary === null){
+    myLibrary = [];
+  }
+  else{
+    updatebooks();
+  }
+}
+
+
+loadLocal();
