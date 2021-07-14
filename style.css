@@ -1,0 +1,160 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #f0ead6;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#banner {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 45px;
+    background-color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 65px;
+    color: #f0ead6;
+}
+#container{
+    width: 100%;
+    height: 50%;
+}
+#sidetab {
+    background-color: black;
+    float: left;
+    height: 100%;
+    width: 19%; 
+    
+}
+
+form {
+    margin-top: 75px;
+    padding-left: 15px;
+    color: #f0ead6;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}
+
+input {
+    margin-bottom: 15px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px white solid;
+    color: #f0ead6;
+    outline: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    padding: 5px;
+}
+
+button {
+    font-family: 'Oswald', sans-serif;
+}
+
+#addbook {
+    float: center;
+    margin: 30px 30px 30px 48px;
+    padding: 10px 5px 10px 5px;
+    font-size: 25px;
+    color: #f0ead6;
+    background-color: black;
+    border: solid;
+}
+
+#addbook:hover{
+    background-color: #f0ead6;
+    color: black;
+}
+
+
+#main {
+    padding: 50px;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(auto, 400px);
+    
+    
+}
+
+.card {
+    border: solid;
+    height: 200px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 25px;
+}   
+
+#delete {
+    
+    border: solid;
+    padding: 7px;
+    margin-top: 35px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    background-color:  #f0ead6;
+    
+}
+
+#delete:hover {
+    background-color: black;
+    color:  #f0ead6;
+}
+
+/* Popup container */
+.popup {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Library</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+        <link rel = 'stylesheet' href = 'style.css'>
+        
+    </head>
+    <body>
+        <div id = 'banner'>Library</div>
+        <div id = 'container'>
+            <div id = 'sidetab'>
+                <form autocomplete="off">
+                    <div class="popup" onclick="myFunction()">
+                        <span class="popuptext" id="myPopup">Make sure you have entered each field correctly</span>
+                    </div>
+                    <label  for = 'bookname'>Book: </label><br>
+                    <input id = 'book' type = 'text' name = 'bookname' required><br>
+                    <label for = 'author'>Author: </label><br>
+                    <input id = 'author' type = 'text' name = 'author' required><br>
+                    <label for = 'pages'>Number of pages: </label><br>
+                    <input id = 'pages' type = 'text' name = 'pages' required><br>
+                    <button id = 'addbook'>Add book</button><br>  
+                </form>      
+            </div>
+            <div id = 'main'> 
+            </div>
+        </div>
+    </body>
+    <script src = "script.js"></script>
+</html>
